@@ -1,0 +1,40 @@
+type: 'custom:apexcharts-card'
+graph_span: 24h
+header:
+  show: true
+  title: Verbruik per 15m (10u)
+  show_states: true
+series:
+  - entity: sensor.p1_meter_active_power
+    type: area
+    name: Verbruik per kwartier
+    group_by:
+      func: avg
+      duration: 15m
+    color_threshold:
+      - value: -3
+        color: '#00cc00'
+      - value: -2
+        color: '#00cc00'
+      - value: -1
+        color: '#00cc00'
+      - value: -0.5
+        color: '#a6ff00'
+      - value: -0.1
+        color: '#a6ff00'
+      - value: 0
+        color: '#ffff00'
+      - value: 1
+        color: '#ff8000'
+      - value: 2
+        color: '#ff0f00'
+apex_config:
+  stroke:
+    width: 0
+    upper_bound: 6000
+    lower_bound: -6000
+experimental:
+  color_threshold: true
+span:
+  end: hour
+  offset: '-0h'
