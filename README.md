@@ -16,4 +16,4 @@ A lot of scripts/Code for HomeAssistent
 
 002_Horizontal_Stack_Overview
 
-![Overview](Lovelace_Dashboards/Global-Cards/002_Horizontal_Stack_Overview.png?raw=true "002_Horizontal_Stack_Overview")
+![Overview](Lovelace_Dashboards/Global_Cards/002_Horizontal_Stack_Overview.png?raw=true "002_Horizontal_Stack_Overview")
