@@ -10,7 +10,7 @@ A bunch of scripts/Code for HomeAssistent
 
 002_PowerUsageVSProduction
 
-![002_PowerUsageVSProduction](Lovelace_Dashboards/apexcharts-cards/002_PowerUsageVSProduction?raw=true "002_PowerUsageVSProduction")
+![002_PowerUsageVSProduction](Lovelace_Dashboards/apexcharts-cards/002_PowerUsageVSProduction.png?raw=true "002_PowerUsageVSProduction")
 
 ## Global Cards
 
