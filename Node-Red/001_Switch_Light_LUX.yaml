@@ -1,0 +1,625 @@
+[
+    {
+        "id": "ed381a97.d80878",
+        "type": "tab",
+        "label": "Verlichting LuxMeter",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bc81fbf1.f5d1f8",
+        "type": "server-state-changed",
+        "z": "ed381a97.d80878",
+        "name": "LuxMeter BinnenVerlichting Kleiner dan 7",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.lightlevel_11",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "7",
+        "halt_if_type": "num",
+        "halt_if_compare": "lt",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "5",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "7ab70a3.398f8f4",
+                "9cc0fdf6.d5036"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7ab70a3.398f8f4",
+        "type": "debug",
+        "z": "ed381a97.d80878",
+        "name": "LightValue.SmallerThen",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c1fd78.d5956288",
+        "type": "debug",
+        "z": "ed381a97.d80878",
+        "name": "LightValue.LargerThen",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e7bd9fc1.c665a",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Notifi IOS app Maarten",
+        "server": "e447d17a.16a64",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_iphonie",
+        "entityId": "",
+        "data": "{\"message\":payload}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 940,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b8ad14bf.e95df8",
+        "type": "change",
+        "z": "ed381a97.d80878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"Extra Lampen Aan: \" & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 280,
+        "wires": [
+            [
+                "e7bd9fc1.c665a"
+            ]
+        ]
+    },
+    {
+        "id": "61c9e47e.50b75c",
+        "type": "change",
+        "z": "ed381a97.d80878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"Extra Lampen UIT: \" & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 440,
+        "wires": [
+            [
+                "e7bd9fc1.c665a"
+            ]
+        ]
+    },
+    {
+        "id": "f8412b46.541068",
+        "type": "server-state-changed",
+        "z": "ed381a97.d80878",
+        "name": "LuxMeter BinnenVerlichting Groter dan 7",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.lightlevel_11",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "7",
+        "halt_if_type": "num",
+        "halt_if_compare": "gt",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "5",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": true,
+        "ignorePrevStateUnknown": true,
+        "ignorePrevStateUnavailable": true,
+        "ignoreCurrentStateUnknown": true,
+        "ignoreCurrentStateUnavailable": true,
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "c1fd78.d5956288",
+                "fa4eb988.510148"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fa4eb988.510148",
+        "type": "time-range-switch",
+        "z": "ed381a97.d80878",
+        "name": "Overdag",
+        "lat": "51.309010",
+        "lon": "5.790420",
+        "startTime": "10:00",
+        "endTime": "sunset",
+        "startOffset": "0",
+        "endOffset": 0,
+        "x": 480,
+        "y": 440,
+        "wires": [
+            [
+                "84c987c9.7d9dd8",
+                "61c9e47e.50b75c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9cc0fdf6.d5036",
+        "type": "time-range-switch",
+        "z": "ed381a97.d80878",
+        "name": "Overdag",
+        "lat": "51.309010",
+        "lon": "5.790420",
+        "startTime": "10:00",
+        "endTime": "sunset",
+        "startOffset": "0",
+        "endOffset": 0,
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "b8ad14bf.e95df8",
+                "80ccc5d9.900b28"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "84c987c9.7d9dd8",
+        "type": "api-current-state",
+        "z": "ed381a97.d80878",
+        "name": "Staan de uplights aan?",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "switch.shelly1_f4cfa2ed40c4",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 720,
+        "y": 560,
+        "wires": [
+            [
+                "cd30a55a.c11f38",
+                "797dbeae.24a4a"
+            ],
+            [
+                "cd30a55a.c11f38"
+            ]
+        ]
+    },
+    {
+        "id": "797dbeae.24a4a",
+        "type": "switch",
+        "z": "ed381a97.d80878",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 560,
+        "wires": [
+            [],
+            [
+                "513cae34.abd7a",
+                "27c8aadf.85ca66",
+                "13dccecb.3e05d1",
+                "65414b4e.af5c74"
+            ]
+        ]
+    },
+    {
+        "id": "513cae34.abd7a",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Uplights Uit",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.shelly1_f4cfa2ed40c4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1290,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27c8aadf.85ca66",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Keuken Hue (Links)",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.keuken",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13dccecb.3e05d1",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Keuken Hue (rechts)",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.keuken_rechts",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65414b4e.af5c74",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Notifi IOS app Maarten",
+        "server": "e447d17a.16a64",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_iphonie",
+        "entityId": "",
+        "data": "{\"message\": \"Lampen uit omdat het weer licht is\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80ccc5d9.900b28",
+        "type": "api-current-state",
+        "z": "ed381a97.d80878",
+        "name": "Staan de uplights uit?",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "switch.shelly1_f4cfa2ed40c4",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "9e055842.cf8498",
+                "cd30a55a.c11f38"
+            ],
+            [
+                "cd30a55a.c11f38"
+            ]
+        ]
+    },
+    {
+        "id": "cd30a55a.c11f38",
+        "type": "debug",
+        "z": "ed381a97.d80878",
+        "name": "Stand Schakelaar",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9e055842.cf8498",
+        "type": "switch",
+        "z": "ed381a97.d80878",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1050,
+        "y": 180,
+        "wires": [
+            [
+                "38f30e52.f875c2",
+                "69ae2407.4fc02c",
+                "86f9fcfe.b59f9",
+                "85fbea38.308e88"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "38f30e52.f875c2",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Uplights Aan",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.shelly1_f4cfa2ed40c4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1290,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69ae2407.4fc02c",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Keuken Hue (Links)",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.keuken",
+        "data": "{\"brightness_pct\":50}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86f9fcfe.b59f9",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Keuken Hue (rechts)",
+        "server": "be9bd109.ba69d",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.keuken_rechts",
+        "data": "{\"brightness_pct\":50}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85fbea38.308e88",
+        "type": "api-call-service",
+        "z": "ed381a97.d80878",
+        "name": "Notifi IOS app Maarten",
+        "server": "e447d17a.16a64",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_iphonie",
+        "entityId": "",
+        "data": "{\"message\": \"Lampen aan omdat het donker is\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d718cf31.c9912",
+        "type": "comment",
+        "z": "ed381a97.d80878",
+        "name": "LuxMeter Binnen",
+        "info": "",
+        "x": 100,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8fc4713.22ba19",
+        "type": "comment",
+        "z": "ed381a97.d80878",
+        "name": "LuxMeter Buiten",
+        "info": "",
+        "x": 120,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "be9bd109.ba69d",
+        "type": "server",
+        "name": "Home Assistant (Schmeitz)",
+        "legacy": false,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    },
+    {
+        "id": "e447d17a.16a64",
+        "type": "server",
+        "name": "Home Assistant",
+        "legacy": false,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": false,
+        "cacheJson": true
+    }
+]

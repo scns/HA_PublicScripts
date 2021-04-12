@@ -17,3 +17,9 @@ A lot of scripts/Code for HomeAssistent
 002_Horizontal_Stack_Overview
 
 ![Overview](Lovelace_Dashboards/Global_Cards/002_Horizontal_Stack_Overview.png?raw=true "002_Horizontal_Stack_Overview")
+
+## Node-Red
+
+001_Switch_Light_LUX
+
+![Switch Light Lux](Node-Red/001_Switch_Light_LUX.png?raw=true "001_Switch_light_LUX")
