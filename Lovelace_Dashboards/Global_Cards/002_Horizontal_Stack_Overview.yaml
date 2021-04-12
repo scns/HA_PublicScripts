@@ -1,0 +1,17 @@
+type: horizontal-stack
+cards:
+  - type: glance
+    entities:
+      - entity: sensor.daily_energy
+        name: Verbruik Stroom
+        icon: 'mdi:flash'
+      - entity: sensor.daily_energy_production
+        name: Terugleveren
+        icon: 'mdi:solar-power'
+      - entity: sensor.solaredge_energy_today
+        name: Opgewekt
+        icon: 'mdi:solar-panel'
+      - entity: sensor.daily_gas
+        name: Verbruik Gas
+        icon: 'mdi:radiator'
+    state_color: false

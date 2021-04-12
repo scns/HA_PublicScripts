@@ -1,0 +1,40 @@
+type: horizontal-stack
+title: Stroomverbruik
+cards:
+  - type: conditional
+    conditions:
+      - entity: sensor.power_consumption
+        state_not: '0.0'
+    card:
+      type: gauge
+      entity: sensor.power_consumption
+      min: 0
+      severity:
+        green: 0
+        yellow: 0
+        red: 4.75
+      max: 5.05
+      name: Actueel Verbruik
+  - type: conditional
+    conditions:
+      - entity: sensor.power_production
+        state_not: '0.0'
+    card:
+      type: gauge
+      entity: sensor.power_production
+      min: 0
+      severity:
+        green: 0
+        yellow: 10
+        red: 24.75
+      max: 5.05
+      name: Actueel Terugleveren
+  - type: gauge
+    entity: sensor.solaredge_current_power
+    name: SE Vermogen
+    max: 5050
+    min: 0
+    severity:
+      green: 500
+      yellow: 3000
+      red: 4750
