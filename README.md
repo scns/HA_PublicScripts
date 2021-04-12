@@ -6,7 +6,7 @@ A lot of scripts/Code for HomeAssistent
 
 001_UpdatePerXXMinut
 
-![Alt text](apexcharts-cards/001_UpdatePerXXMinute?raw=true "Update per xx Minute")
+![Alt text](Lovelace_Dashboards/apexcharts-cards/001_UpdatePerXXMinute.png?raw=true "Update per xx Minute")
 
 ## Global Cards
 
