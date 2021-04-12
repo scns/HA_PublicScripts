@@ -1,0 +1,36 @@
+type: 'custom:apexcharts-card'
+graph_span: 7d
+header:
+  show: true
+  title: Verbruikt vs Teruglevering
+  show_states: true
+stacked: false
+series:
+  - entity: sensor.daily_energy
+    type: column
+    name: Verbruikt
+    group_by:
+      func: max
+      duration: 1d
+    color: '#0753a8'
+  - entity: sensor.daily_energy_production
+    type: column
+    name: Teruglevering
+    group_by:
+      func: max
+      duration: 1d
+    color: '#00cc00'
+apex_config:
+  stroke:
+    width:
+      - 2
+      - 2
+  yaxis:
+    - title: Power
+      text: kWh
+      min: 0
+  dataLabels:
+    enabled: true
+span:
+  end: day
+  offset: '-0d'
