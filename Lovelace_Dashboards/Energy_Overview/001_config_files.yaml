@@ -1,0 +1,110 @@
+
+utility_meter:
+  daily_energy_offpeak:
+    source: sensor.energy_consumption_tarif_1
+    cycle: daily
+  daily_energy_peak:
+    source: sensor.energy_consumption_tarif_2
+    cycle: daily
+  daily_gas:
+    source: sensor.gas_consumption
+    cycle: daily
+  monthly_energy_offpeak:
+    source: sensor.energy_consumption_tarif_1
+    cycle: monthly
+  monthly_energy_peak:
+    source: sensor.energy_consumption_tarif_2
+    cycle: monthly
+  yearly_energy_offpeak:
+    source: sensor.energy_consumption_tarif_1
+    cycle: yearly
+  yearly_energy_peak:
+    source: sensor.energy_consumption_tarif_2
+    cycle: yearly
+  monthly_gas:
+    source: sensor.gas_consumption
+    cycle: monthly
+  yearly_gas:
+    source: sensor.gas_consumption
+    cycle: yearly
+  daily_energy_production_tarif_1:
+    source: sensor.energy_production_tarif_1
+    cycle: daily
+  monthly_energy_production_tarif_1:
+    source: sensor.energy_production_tarif_1
+    cycle: monthly
+  yearly_energy_production_tarif_1:
+    source: sensor.energy_production_tarif_1
+    cycle: yearly
+  daily_energy_production_tarif_2:
+    source: sensor.energy_production_tarif_2
+    cycle: daily
+  monthly_energy_production_tarif_2:
+    source: sensor.energy_production_tarif_2
+    cycle: monthly
+  yearly_energy_production_tarif_2:
+    source: sensor.energy_production_tarif_2
+    cycle: yearly
+
+#DSMR Reader connection
+- platform: dsmr
+    host: 192.168.99.41
+    port: 23
+    dsmr_version: 5
+    reconnect_interval: 20
+
+#Templates
+- platform: template
+    sensors:
+      daily_energy:
+        friendly_name: Daily Energy
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float)|round(3) }}"
+      daily_energy_production:
+        friendly_name: Daily Energy Production
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.daily_energy_production_tarif_1')|float + states('sensor.daily_energy_production_tarif_2')|float)|round(3)  }}"
+      monthly_energy:
+        friendly_name: Monthly Energy
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float)|round(3) }}"
+      monthly_energy_production:
+        friendly_name: Monthly Energy Production
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.monthly_energy_production_tarif_1')|float + states('sensor.monthly_energy_production_tarif_2')|float)|round(3)  }}"
+      p1_meter_active_power:
+        friendly_name: Active Power
+        unit_of_measurement: kW
+        value_template: "{{ states('sensor.power_consumption')|float - states('sensor.power_production')|float }}"
+      verbruik_vs_terugleveren:
+        friendly_name: Verbruik vs Terugleveren
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.energy_consumption_tarif_1')|float + states('sensor.energy_consumption_tarif_2')|float - states('sensor.energy_production_tarif_1')|float - states('sensor.energy_production_tarif_2')|float)|round(3) }}"        
+      stand_maand:
+        friendly_name: Totaal Verbruik Maand incl. Terugleveren
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.monthly_energy')|float  - states('sensor.monthly_energy_production')|float)| round(3) }}"      
+      year_stand_energy:
+        friendly_name: Totaal Verbruik Jaar incl. Terugleveren
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.yearly_energy_offpeak')|float + states('sensor.yearly_energy_peak')|float - states('sensor.yearly_energy_production_tarif_1')|float - states('sensor.yearly_energy_production_tarif_2')|float)|round(3) }}"              
+      solaredge_energy_today_kwh:
+        friendly_name: solaredge (Energy today)
+        unit_of_measurement: kWh
+        icon_template: mdi:solar-power
+        value_template: "{{ (states('sensor.solaredge_energy_today')|float)/1000|round(3) }}"   
+      solaredge_energy_this_month_kwh:
+        friendly_name: solaredge (Energy this month)
+        unit_of_measurement: kWh
+        icon_template: mdi:solar-power
+        value_template: "{{ (states('sensor.solaredge_energy_this_month')|float)/1000|round(3) }}"  
+      solaredge_energy_this_year_kwh:
+        friendly_name: solaredge (Energy this year)
+        unit_of_measurement: kWh
+        icon_template: mdi:solar-power
+        value_template: "{{ (states('sensor.solaredge_energy_this_year')|float)/1000|round(3) }}"  
+      solaredge_energy_lifetime_energy_kwh:
+        friendly_name: solaredge (Lifetime energy)
+        unit_of_measurement: kWh
+        icon_template: mdi:solar-power
+        value_template: "{{ (states('sensor.solaredge_lifetime_energy')|float)/1000|round(3) }}"  

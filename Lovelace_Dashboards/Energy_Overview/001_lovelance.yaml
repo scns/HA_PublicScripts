@@ -1,0 +1,114 @@
+- icon: 'mdi:flash'
+    title: Energy
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.energy_consumption_tarif_1
+            icon: 'mdi:flash'
+          - entity: sensor.energy_consumption_tarif_2
+            icon: 'mdi:flash'
+          - entity: sensor.energy_production_tarif_1
+            icon: 'mdi:solar-panel'
+          - entity: sensor.energy_production_tarif_2
+            icon: 'mdi:solar-panel'
+          - entity: sensor.verbruik_vs_terugleveren
+            icon: 'mdi:flash'
+            name: Verbruik minus teruglevering
+          - entity: sensor.gas_consumption
+        title: Stand op de meter
+      - type: entities
+        entities:
+          - entity: sensor.hourly_gas_consumption
+          - entity: sensor.daily_gas
+            name: Daily Gas
+            icon: 'mdi:fire'
+          - entity: sensor.monthly_gas
+            name: Monthly Gas
+            icon: 'mdi:fire'
+        title: Gasverbruik
+      - type: entities
+        entities:
+          - entity: sensor.power_consumption
+          - entity: sensor.power_production
+          - entity: sensor.power_tariff
+          - entity: sensor.p1_meter_active_power
+            icon: 'mdi:flash'
+        title: Actueel verbruik
+      - type: entities
+        entities:
+          - entity: sensor.daily_energy
+            icon: 'mdi:flash'
+          - entity: sensor.daily_energy_production
+            icon: 'mdi:solar-panel'
+          - entity: sensor.daily_energy_offpeak
+            name: Daily Energy Offpeak
+            icon: 'mdi:flash'
+          - entity: sensor.daily_energy_peak
+            name: Daily Energy Peak
+            icon: 'mdi:flash'
+          - entity: sensor.daily_energy_production_tarif_1
+            name: Daily Energy Production Offpeak
+            icon: 'mdi:solar-panel'
+          - entity: sensor.daily_energy_production_tarif_2
+            name: Daily Energy Production Peak
+            icon: 'mdi:solar-panel'
+        title: Dagelijks verbuik
+      - type: entities
+        entities:
+          - entity: sensor.monthly_energy
+            icon: 'mdi:flash'
+          - entity: sensor.monthly_energy_production
+            icon: 'mdi:solar-panel'
+          - entity: sensor.stand_maand
+            icon: 'mdi:flash'
+          - entity: sensor.monthly_energy_offpeak
+            name: Monthly Energy Offpeak
+            icon: 'mdi:flash'
+          - entity: sensor.monthly_energy_peak
+            name: Monthly Energy Peak
+            icon: 'mdi:flash'
+          - entity: sensor.monthly_energy_production_tarif_1
+            name: Monthly Energy Production Offpeak
+            icon: 'mdi:solar-panel'
+          - entity: sensor.monthly_energy_production_tarif_2
+            name: Monthly Energy Production Peak
+            icon: 'mdi:solar-panel'
+        title: Energie lopende maand
+      - type: entities
+        entities:
+          - entity: sensor.solaredge_current_power
+            icon: 'mdi:solar-power'
+          - entity: sensor.solaredge_energy_today_kwh
+            icon: 'mdi:solar-power'
+          - entity: sensor.solaredge_energy_this_month_kwh
+            icon: 'mdi:solar-power'
+          - entity: sensor.solaredge_energy_this_year_kwh
+            icon: 'mdi:solar-power'
+          - entity: sensor.solaredge_energy_lifetime_energy_kwh
+            icon: 'mdi:solar-power'
+        title: Zonnepanelen
+      - type: entities
+        entities:
+          - entity: sensor.yearly_energy_production_tarif_1
+            icon: 'mdi:solar-panel'
+            name: Yearly Productie Offpeak
+          - entity: sensor.yearly_energy_production_tarif_2
+            name: Yearly Productie Peak
+            icon: 'mdi:solar-panel'
+          - entity: sensor.yearly_energy_offpeak
+            name: Yearly Energy Offpeak
+            icon: 'mdi:flash'
+          - entity: sensor.yearly_energy_peak
+            name: Yearly Energy Peak
+            icon: 'mdi:flash'
+          - entity: sensor.yearly_gas
+            name: Yearly Gas
+            icon: 'mdi:fire'
+          - entity: sensor.year_stand_energy
+            icon: 'mdi:flash'
+        title: Verbruik jaarlijks
+      - type: sensor
+        entity: sensor.voltage_phase_l1
+        graph: line
+        icon: 'mdi:flash'

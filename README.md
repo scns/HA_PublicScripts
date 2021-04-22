@@ -27,3 +27,9 @@ A bunch of scripts/Code for HomeAssistent
 001_Switch_Light_LUX
 
 ![001_Switch_Light_LUX](Node-Red/001_Switch_Light_LUX.png?raw=true "001_Switch_light_LUX")
+
+## Energy Overview
+
+001_Switch_Light_LUX
+
+![001_lovelance](Energy_Overview/001_lovelance.png?raw=true "001_lovelance")
