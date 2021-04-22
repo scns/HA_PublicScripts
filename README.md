@@ -32,4 +32,4 @@ A bunch of scripts/Code for HomeAssistent
 
 001_Switch_Light_LUX
 
-![001_lovelance](Energy_Overview/001_lovelance.png?raw=true "001_lovelance")
+![001_lovelance](Lovelace_Dashboards/Energy_Overview/001_lovelance.png?raw=true "001_lovelance")
