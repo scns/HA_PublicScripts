@@ -33,3 +33,9 @@ A bunch of scripts/Code for HomeAssistent
 001_Switch_Light_LUX
 
 ![001_lovelance](Lovelace_Dashboards/Energy_Overview/001_lovelance.png?raw=true "001_lovelance")
+
+## Like what you see?
+
+Enjoy my config and scripts? Help me out for a couple of :beers: or a :coffee:
+
+[![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/MaartenSchmeitz)
