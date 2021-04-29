@@ -2,6 +2,12 @@
 
 A bunch of scripts/Code for HomeAssistent
 
+## Like what you see?
+
+Enjoy my config and scripts? Help me out for a couple of :beers: or a :coffee:
+
+[![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/MaartenSchmeitz)
+
 ## apexcharts-card
 
 001_UpdatePerXXMinut
