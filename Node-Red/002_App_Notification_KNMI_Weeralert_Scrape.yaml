@@ -1,11 +1,11 @@
   - platform: scrape
-    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #change provincie
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #Wijzig provincie
     select: "div.alert__heading"
     name: "knmi weercode"
-    scan_interval: 300 #seconds
+    scan_interval: 300 #Seconds
 
   - platform: scrape
-    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #change provincie
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #Wijzig provincie
     select: "a.alert__description"
     name: "knmi weer waarschuwing"
-    scan_interval: 300 #seconds
+    scan_interval: 300 #Seconds
