@@ -1,0 +1,11 @@
+  - platform: scrape
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #change provincie
+    select: "div.alert__heading"
+    name: "knmi weercode"
+    scan_interval: 300 #seconds
+
+  - platform: scrape
+    resource: https://www.knmi.nl/nederland-nu/weer/waarschuwingen/limburg #change provincie
+    select: "a.alert__description"
+    name: "knmi weer waarschuwing"
+    scan_interval: 300 #seconds

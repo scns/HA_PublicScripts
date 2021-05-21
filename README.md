@@ -34,6 +34,10 @@ Enjoy my config and scripts? Help me out for a couple of :beers: or a :coffee:
 
 ![001_Switch_Light_LUX](Node-Red/001_Switch_Light_LUX.png?raw=true "001_Switch_light_LUX")
 
+002_App_Notification_KNMI_Weeralert
+
+![002_App_Notification_KNMI_Weeralert](Node-Red/002_App_Notification_KNMI_Weeralert.png?raw=true "002_App_Notification_KNMI_Weeralert")
+
 ## Energy Overview
 
 001_Switch_Light_LUX
