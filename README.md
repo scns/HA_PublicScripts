@@ -10,7 +10,7 @@ Enjoy my config and scripts? Help me out for a couple of :beers: or a :coffee:
 
 ## apexcharts-card
 
-001_UpdatePerXXMinut
+001_UpdatePerXXMinute
 
 ![001_UpdatePerXXMinut](Lovelace_Dashboards/apexcharts-cards/001_UpdatePerXXMinute.png?raw=true "001_UpdatePerXXMinut")
 
